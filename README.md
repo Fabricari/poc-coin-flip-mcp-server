@@ -9,7 +9,6 @@ The server intentionally stays small and predictable. It exposes one tool, `coin
 - [Docs](Docs) — planning notes and project guidance.
 - [McpServer](McpServer) — the C# console MCP server implementation.
 - [Tests](Tests) — integration tests that invoke the server through MCP transport.
-- [McpClient](McpClient) — reserved for future experiments (not required for the current flow).
 - [CoinFlip.sln](CoinFlip.sln) — solution file for build/test commands.
 
 ## How To Use This Server In VS Code
