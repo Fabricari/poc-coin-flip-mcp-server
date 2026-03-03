@@ -3,6 +3,7 @@ using ModelContextProtocol.Protocol;
 
 namespace CoinFlip.McpServer.Tests;
 
+// Integration tests that validate MCP client/server behavior over stdio transport.
 public class CoinFlipInvocationTests
 {
     // Update this parameter if your solution/project layout changes.
@@ -10,6 +11,7 @@ public class CoinFlipInvocationTests
     private const string ServerDllRelativePath = "McpServer/CoinFlip.McpServer/bin/Debug/net10.0/CoinFlip.McpServer.dll";
 
     [Fact]
+    // Verifies the test can locate the built server process before attempting MCP calls.
     public void ServerDllPath_ResolvesToExistingFile()
     {
         string serverDllPath = ResolveServerDllPath();
@@ -20,6 +22,7 @@ public class CoinFlipInvocationTests
     }
 
     [Fact]
+    // Confirms the server advertises coin_flip in MCP tool discovery metadata.
     public async Task CoinFlipTool_IsAdvertisedInToolsList()
     {
         await using McpClient client = await CreateClientAsync();
@@ -29,6 +32,7 @@ public class CoinFlipInvocationTests
     }
 
     [Fact]
+    // Executes coin_flip through MCP and validates the response contract.
     public async Task CoinFlipTool_ReturnsHeadsOrTails()
     {
         await using McpClient client = await CreateClientAsync();
@@ -42,6 +46,7 @@ public class CoinFlipInvocationTests
         Assert.Contains(text, new[] { "heads", "tails" });
     }
 
+    // Starts the server as a child process and returns an MCP client bound to its stdio streams.
     private static Task<McpClient> CreateClientAsync()
     {
         string serverDllPath = ResolveServerDllPath();
@@ -56,6 +61,7 @@ public class CoinFlipInvocationTests
         return McpClient.CreateAsync(transport);
     }
 
+    // Walks upward from test output paths until the repository root (CoinFlip.sln) is found.
     private static string ResolveServerDllPath()
     {
         DirectoryInfo? current = new(AppContext.BaseDirectory);
@@ -65,6 +71,7 @@ public class CoinFlipInvocationTests
             string solutionPath = Path.Combine(current.FullName, "CoinFlip.sln");
             if (File.Exists(solutionPath))
             {
+                // Builds an absolute path to the server DLL from the discovered repository root.
                 return Path.Combine(current.FullName, ServerDllRelativePath);
             }
 
