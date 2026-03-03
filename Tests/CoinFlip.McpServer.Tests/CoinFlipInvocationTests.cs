@@ -9,6 +9,7 @@ public class CoinFlipInvocationTests
     // Update this parameter if your solution/project layout changes.
     // It should be the server DLL path relative to the repository root (where CoinFlip.sln is located).
     private const string ServerDllRelativePath = "McpServer/CoinFlip.McpServer/bin/Debug/net10.0/CoinFlip.McpServer.dll";
+    private const int RandomnessSampleSize = 40;
 
     [Fact]
     // Verifies the test can locate the built server process before attempting MCP calls.
@@ -44,6 +45,31 @@ public class CoinFlipInvocationTests
 
         string? text = result.Content.OfType<TextContentBlock>().FirstOrDefault()?.Text;
         Assert.Contains(text, new[] { "heads", "tails" });
+    }
+
+    [Fact]
+    // Sanity-checks randomness by verifying both outcomes appear over multiple invocations.
+    public async Task CoinFlipTool_ProducesBothOutcomes_OverMultipleInvocations()
+    {
+        await using McpClient client = await CreateClientAsync();
+
+        HashSet<string> observedOutcomes = [];
+
+        for (int attempt = 0; attempt < RandomnessSampleSize; attempt++)
+        {
+            CallToolResult result = await client.CallToolAsync(
+                "coin_flip",
+                new Dictionary<string, object?>(),
+                cancellationToken: CancellationToken.None);
+
+            string? text = result.Content.OfType<TextContentBlock>().FirstOrDefault()?.Text;
+            Assert.Contains(text, new[] { "heads", "tails" });
+
+            observedOutcomes.Add(text!);
+        }
+
+        Assert.Contains("heads", observedOutcomes);
+        Assert.Contains("tails", observedOutcomes);
     }
 
     // Starts the server as a child process and returns an MCP client bound to its stdio streams.
