@@ -26,8 +26,23 @@ public class CoinFlipInvocationTests
     // Confirms the server advertises coin_flip in MCP tool discovery metadata.
     public async Task CoinFlipTool_IsAdvertisedInToolsList()
     {
-        await using McpClient client = await CreateClientAsync();
+        // Resolve the built server DLL so the test can launch the MCP server process.
+        string serverDllPath = ResolveServerDllPath();
 
+        // Configure stdio transport: the client will start `dotnet <server-dll>`
+        // and then speak MCP over the child process stdin/stdout streams.
+        StdioClientTransport transport = new(new StdioClientTransportOptions
+        {
+            Name = "CoinFlip.Tests",
+            Command = "dotnet",
+            Arguments = [$"{serverDllPath}"]
+        });
+
+        // Create an MCP client connected to that transport.
+        // `await using` ensures the underlying process/streams are cleaned up.
+        await using McpClient client = await McpClient.CreateAsync(transport);
+
+        // Ask the server for its advertised tools and verify `coin_flip` is present.
         IList<McpClientTool> tools = await client.ListToolsAsync();
         Assert.Contains(tools, tool => tool.Name == "coin_flip");
     }
@@ -36,47 +51,11 @@ public class CoinFlipInvocationTests
     // Executes coin_flip through MCP and validates the response contract.
     public async Task CoinFlipTool_ReturnsHeadsOrTails()
     {
-        await using McpClient client = await CreateClientAsync();
-
-        CallToolResult result = await client.CallToolAsync(
-            "coin_flip",
-            new Dictionary<string, object?>(),
-            cancellationToken: CancellationToken.None);
-
-        string? text = result.Content.OfType<TextContentBlock>().FirstOrDefault()?.Text;
-        Assert.Contains(text, new[] { "heads", "tails" });
-    }
-
-    [Fact]
-    // Sanity-checks randomness by verifying both outcomes appear over multiple invocations.
-    public async Task CoinFlipTool_ProducesBothOutcomes_OverMultipleInvocations()
-    {
-        await using McpClient client = await CreateClientAsync();
-
-        HashSet<string> observedOutcomes = [];
-
-        for (int attempt = 0; attempt < RandomnessSampleSize; attempt++)
-        {
-            CallToolResult result = await client.CallToolAsync(
-                "coin_flip",
-                new Dictionary<string, object?>(),
-                cancellationToken: CancellationToken.None);
-
-            string? text = result.Content.OfType<TextContentBlock>().FirstOrDefault()?.Text;
-            Assert.Contains(text, new[] { "heads", "tails" });
-
-            observedOutcomes.Add(text!);
-        }
-
-        Assert.Contains("heads", observedOutcomes);
-        Assert.Contains("tails", observedOutcomes);
-    }
-
-    // Starts the server as a child process and returns an MCP client bound to its stdio streams.
-    private static Task<McpClient> CreateClientAsync()
-    {
+        // Resolve the built server DLL so the test can launch the MCP server process.
         string serverDllPath = ResolveServerDllPath();
 
+        // Configure stdio transport: the client will start `dotnet <server-dll>`
+        // and then speak MCP over the child process stdin/stdout streams.
         StdioClientTransport transport = new(new StdioClientTransportOptions
         {
             Name = "CoinFlip.Tests",
@@ -84,7 +63,67 @@ public class CoinFlipInvocationTests
             Arguments = [$"{serverDllPath}"]
         });
 
-        return McpClient.CreateAsync(transport);
+        // Create an MCP client connected to that transport.
+        // `await using` ensures the underlying process/streams are cleaned up.
+        await using McpClient client = await McpClient.CreateAsync(transport);
+
+        // Invoke the MCP tool by name with an empty argument payload.
+        CallToolResult result = await client.CallToolAsync(
+            "coin_flip",
+            new Dictionary<string, object?>(),
+            cancellationToken: CancellationToken.None);
+
+        // The tool result can contain multiple content blocks; grab the first text block.
+        string? text = result.Content.OfType<TextContentBlock>().FirstOrDefault()?.Text;
+
+        // Contract check: this demo tool should only return one of two values.
+        Assert.Contains(text, new[] { "heads", "tails" });
+    }
+
+    [Fact]
+    // Sanity-checks randomness by verifying both outcomes appear over multiple invocations.
+    public async Task CoinFlipTool_ProducesBothOutcomes_OverMultipleInvocations()
+    {
+        // Resolve the built server DLL so the test can launch the MCP server process.
+        string serverDllPath = ResolveServerDllPath();
+
+        // Configure stdio transport: the client will start `dotnet <server-dll>`
+        // and then speak MCP over the child process stdin/stdout streams.
+        StdioClientTransport transport = new(new StdioClientTransportOptions
+        {
+            Name = "CoinFlip.Tests",
+            Command = "dotnet",
+            Arguments = [$"{serverDllPath}"]
+        });
+
+        // Create an MCP client connected to that transport.
+        // `await using` ensures the underlying process/streams are cleaned up.
+        await using McpClient client = await McpClient.CreateAsync(transport);
+
+        // Track outcomes across repeated tool invocations.
+        HashSet<string> observedOutcomes = [];
+
+        for (int attempt = 0; attempt < RandomnessSampleSize; attempt++)
+        {
+            // Invoke the MCP tool by name with an empty argument payload.
+            CallToolResult result = await client.CallToolAsync(
+                "coin_flip",
+                new Dictionary<string, object?>(),
+                cancellationToken: CancellationToken.None);
+
+            // The tool result can contain multiple content blocks; grab the first text block.
+            string? text = result.Content.OfType<TextContentBlock>().FirstOrDefault()?.Text;
+
+            // Contract check for each invocation.
+            Assert.Contains(text, new[] { "heads", "tails" });
+
+            // Record the outcome so we can assert both values eventually appear.
+            observedOutcomes.Add(text!);
+        }
+
+        // Over enough samples, we expect to observe both possible outcomes.
+        Assert.Contains("heads", observedOutcomes);
+        Assert.Contains("tails", observedOutcomes);
     }
 
     // Walks upward from test output paths until the repository root (CoinFlip.sln) is found.
