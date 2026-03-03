@@ -8,7 +8,7 @@ public class CoinFlipInvocationTests
 {
     // Update this parameter if your solution/project layout changes.
     // It should be the server DLL path relative to the repository root (where CoinFlip.sln is located).
-    private const string ServerDllRelativePath = "McpServer/CoinFlip.McpServer/bin/Debug/net10.0/CoinFlip.McpServer.dll";
+    private const string ServerDllRelativePath = "CoinFlip.McpServer/bin/Debug/net10.0/CoinFlip.McpServer.dll";
     private const int RandomnessSampleSize = 40;
 
     [Fact]

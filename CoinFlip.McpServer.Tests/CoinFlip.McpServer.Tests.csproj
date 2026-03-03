@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\McpServer\CoinFlip.McpServer\CoinFlip.McpServer.csproj" />
+    <ProjectReference Include="..\CoinFlip.McpServer\CoinFlip.McpServer.csproj" />
   </ItemGroup>
 
 </Project>

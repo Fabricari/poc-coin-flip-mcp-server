@@ -6,10 +6,15 @@ The server intentionally stays small and predictable. It exposes one tool, `coin
 
 ## Repository Structure
 
-- [Docs](Docs) — planning notes and project guidance.
-- [McpServer](McpServer) — the C# console MCP server implementation.
-- [Tests](Tests) — integration tests that invoke the server through MCP transport.
-- [CoinFlip.sln](CoinFlip.sln) — solution file for build/test commands.
+```text
+PoC Coin Flip MCP/
+├── CoinFlip.sln                 # Solution file for build/test commands
+├── README.md                    # Project overview and usage notes
+├── Docs/                        # Planning notes and project guidance
+├── .vscode/                     # Local MCP host/editor configuration
+├── CoinFlip.McpServer/          # C# console MCP server implementation
+└── CoinFlip.McpServer.Tests/    # Integration tests invoking MCP transport
+```
 
 ## How To Use This Server In VS Code
 
@@ -45,7 +50,7 @@ In other words, VS Code only needs a command + executable target it can launch; 
 
 ## What The Tests Are Checking (And Why)
 
-The tests in [Tests/CoinFlip.McpServer.Tests/CoinFlipInvocationTests.cs](Tests/CoinFlip.McpServer.Tests/CoinFlipInvocationTests.cs) are integration tests intended to verify MCP behavior at the boundary where real usage happens.
+The tests in [CoinFlip.McpServer.Tests/CoinFlipInvocationTests.cs](CoinFlip.McpServer.Tests/CoinFlipInvocationTests.cs) are integration tests intended to verify MCP behavior at the boundary where real usage happens.
 
 They check:
 
