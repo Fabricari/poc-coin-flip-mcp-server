@@ -4,7 +4,7 @@
       "type": "stdio",
       "command": "dotnet",
       "args": [
-        "${workspaceFolder}/McpServer/CoinFlip.McpServer/bin/Debug/net10.0/CoinFlip.McpServer.dll"
+        "${workspaceFolder}/CoinFlip.McpServer/bin/Debug/net10.0/CoinFlip.McpServer.dll"
       ]
     }
   }
