@@ -1,0 +1,25 @@
+MCP Server Demo: Plan:
+
+1. Build a minimal MCP server as a C# console app.
+	- Create a .NET console project.
+	- Add the MCP .NET SDK.
+	- Register a single tool: coin_flip() -> "heads" | "tails".
+	- Ensure it runs over stdio.
+	- Ensure all logs go to stderr, not stdout. (Optional if no logs)
+	- No side effects, no external calls.
+2. Run it locally as a process, not a service.
+	- Do not create a macOS launch agent.
+	- Do not containerize.
+	- Do not expose a port.
+	- Let VS Code launch it via stdio using .vscode/mcp.json.
+3. Register it locally in VS Code.
+	- Add .vscode/mcp.json pointing to dotnet run (or the built DLL).
+	- Start the MCP server from VS Code.
+	- Verify the coin_flip tool appears in Copilot Agent mode.
+4. Demonstrate it with my use case.
+	- Sample Prompt: “Generate two different implementations of this feature. Use the coin_flip tool to decide which implementation to finalize.”
+5. Clean up
+	- Stop the MCP server in VS Code (ensure no HelloMcp/dotnet process is still running).
+	- Remove the server entry from .vscode/mcp.json (or delete the file if it was only for this demo).
+	- Run dotnet clean (optional, to remove build artifacts).
+	- Restart VS Code and verify the coin_flip tool no longer appears in Agent mode.
