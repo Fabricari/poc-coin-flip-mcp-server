@@ -93,7 +93,15 @@ dotnet test
 
 ## Troubleshooting
 
-- `coin_flip` missing in tools: run `dotnet build CoinFlip.sln`, then reload VS Code window.
-- DLL not found: verify path in [.vscode/mcp.json](.vscode/mcp.json) matches `CoinFlip.McpServer/bin/Debug/net10.0/`.
+- `coin_flip` missing in tools list:
+  1. Run `dotnet build CoinFlip.sln`.
+  2. Confirm the DLL exists at either:
+	  - `${workspaceFolder}/CoinFlip.McpServer/bin/Debug/net10.0/CoinFlip.McpServer.dll`, or
+	  - your absolute path if you mapped directly to a DLL.
+  3. In [.vscode/mcp.json](.vscode/mcp.json), confirm:
+	  - `"command": "dotnet"`
+	  - `"args": ["<path-to-CoinFlip.McpServer.dll>"]` (single DLL path argument)
+  4. Reload VS Code window, then check Agent tools again.
+- If you mapped an absolute DLL path directly and it still does not appear, switch back to the workspace-relative path shown above to rule out a stale or incorrect absolute path.
 - Tool approval prompts every time: in VS Code MCP tool permissions, set `coin_flip` to always allow for this workspace/session.
 
