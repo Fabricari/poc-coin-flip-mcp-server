@@ -1,40 +1,65 @@
 # CoinFlip
 
-MCP coin-flip demo workspace.
+This repository is a learning-focused proof of concept for building a minimal Model Context Protocol (MCP) server in C#. The goal is to understand MCP plumbing end to end: how a local process is launched, how tools are advertised, and how tool calls flow over stdio transport.
 
-## Structure
+The server intentionally stays small and predictable. It exposes one tool, `coin_flip`, that returns `heads` or `tails`.
 
-- Docs/
-- McpServer/
-- McpClient/
-- CoinFlip.sln
+## Repository Structure
 
-## What The Tests Validate
+- [Docs](Docs) — planning notes and project guidance.
+- [McpServer](McpServer) — the C# console MCP server implementation.
+- [Tests](Tests) — integration tests that invoke the server through MCP transport.
+- [McpClient](McpClient) — reserved for future experiments (not required for the current flow).
+- [CoinFlip.sln](CoinFlip.sln) — solution file for build/test commands.
 
-The integration test file at `Tests/CoinFlip.McpServer.Tests/CoinFlipInvocationTests.cs` is intentionally focused on MCP plumbing, not just coin-flip business logic.
+## How To Use This Server In VS Code
 
-It verifies three things:
+1. Build the server so the DLL exists:
 
-1. The built server DLL path resolves correctly.
-2. The MCP server advertises the `coin_flip` tool in tool discovery.
-3. Invoking `coin_flip` returns a valid contract value (`heads` or `tails`).
+```bash
+dotnet build CoinFlip.sln
+```
 
-## Why This Matters
+2. Configure local MCP host wiring in [.vscode/mcp.json](.vscode/mcp.json).
 
-These tests confirm the server can be launched and used the same way an MCP host would use it in practice: as a process connected over stdio transport.
+3. Start the MCP server from VS Code/Copilot Agent mode and verify `coin_flip` appears.
 
-That means we are validating:
+Example configuration shape:
 
-- process startup,
-- MCP handshake/tool discovery,
-- tool invocation through the MCP protocol.
+```json
+{
+	"servers": {
+		"coin-flip": {
+			"type": "stdio",
+			"command": "dotnet",
+			"args": ["/absolute/path/to/CoinFlip.McpServer.dll"]
+		}
+	}
+}
+```
 
-So this is an integration-style validation of the MCP service boundary, not a unit test of internal methods.
+### About The DLL Path
 
-## How This Mirrors VS Code MCP Invocation
+The server DLL does not need to live under this repository. You can point `args` to any valid DLL location on your machine (absolute path), or use a repository-relative value if that is more convenient for local development.
 
-In the test, `StdioClientTransport` launches the server DLL with `dotnet <path-to-dll>`.
+In other words, VS Code only needs a command + executable target it can launch; it does not require the DLL to stay in the project output folder.
 
-In VS Code, the built-in MCP host does the equivalent process launch from `.vscode/mcp.json` and communicates over stdio.
+## What The Tests Are Checking (And Why)
 
-The test's DLL path resolution acts like local injection of the executable target, which is conceptually the same role that VS Code configuration plays when wiring a local MCP server process.
+The tests in [Tests/CoinFlip.McpServer.Tests/CoinFlipInvocationTests.cs](Tests/CoinFlip.McpServer.Tests/CoinFlipInvocationTests.cs) are integration tests intended to verify MCP behavior at the boundary where real usage happens.
+
+They check:
+
+1. The server process target can be located.
+2. MCP tool discovery includes `coin_flip`.
+3. MCP tool invocation returns a valid result (`heads` or `tails`).
+4. A small sanity loop observes both outcomes over repeated calls.
+
+Why this matters: these tests confirm the server can be launched and used through MCP transport (the same style used by hosts like VS Code), not just that an internal method returns a value.
+
+## Run Tests
+
+```bash
+dotnet test
+```
+
