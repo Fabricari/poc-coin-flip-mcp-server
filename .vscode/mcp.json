@@ -1,6 +1,6 @@
 {
   "servers": {
-    "coin-flip": {
+    "Coin Flip": {
       "type": "stdio",
       "command": "dotnet",
       "args": [
