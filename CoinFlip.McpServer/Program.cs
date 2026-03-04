@@ -1,5 +1,4 @@
-﻿using ModelContextProtocol;
-using ModelContextProtocol.Protocol;
+﻿using ModelContextProtocol.Protocol;
 using ModelContextProtocol.Server;
 using System.Text.Json;
 
@@ -10,43 +9,31 @@ public static class Program
 	private const string CoinFlipToolName = "coin_flip";
 
 	/*
-	 * Main is the complete startup path for this MCP server process.
+	 * Entry point for the MCP server process.
 	 *
-	 * Flow:
-	 * 1) Build a tool definition that clients can discover via tools/list.
-	 * 2) Create McpServerOptions with server identity and request handlers.
-	 * 3) Start the server using stdio transport so MCP messages flow over stdin/stdout.
-	 * 4) Run the server loop until the host/client stops the process.
+	 * In order, we:
+	 * 1) Build the tool metadata shown in tools/list.
+	 * 2) Build server options (identity + request handlers).
+	 * 3) Start stdio transport so MCP messages use stdin/stdout.
+	 * 4) Run until the host process stops.
 	 */
 	public static async Task Main(string[] args)
 	{
-		Tool coinFlipTool = CreateCoinFlipToolDefinition();
+		Tool coinFlipTool = BuildCoinFlipTool();
+		McpServerOptions serverOptions = BuildServerOptions(coinFlipTool);
 
-		McpServerOptions options = new()
-		{
-			ServerInfo = new Implementation { Name = ServerName, Version = ServerVersion },
-			Handlers = new McpServerHandlers
-			{
-				ListToolsHandler = (request, cancellationToken) => ValueTask.FromResult(new ListToolsResult
-				{
-					Tools = [coinFlipTool]
-				}),
-				CallToolHandler = HandleCallTool
-			}
-		};
-
-		await using McpServer server = McpServer.Create(new StdioServerTransport(ServerName), options);
+		await using McpServer server = McpServer.Create(new StdioServerTransport(ServerName), serverOptions);
 		await server.RunAsync();
 	}
 
 	/*
-	 * Defines how the coin_flip tool appears to MCP clients during discovery.
+	 * Describes the coin_flip tool for discovery.
 	 *
-	 * - Name is the stable protocol contract the client calls.
-	 * - Description is surfaced in tool metadata for humans/agents.
-	 * - InputSchema is an empty object, which means this tool accepts no arguments.
+	 * - Name is the tool ID clients call.
+	 * - Description is shown in client UIs.
+	 * - InputSchema is empty because this tool takes no arguments.
 	 */
-	private static Tool CreateCoinFlipToolDefinition()
+	private static Tool BuildCoinFlipTool()
 	{
 		return new Tool
 		{
@@ -62,32 +49,47 @@ public static class Program
 	}
 
 	/*
-	 * Handles MCP tools/call requests for this server.
-	 *
-	 * For this PoC we support one tool only: coin_flip.
-	 * If the requested tool name matches, we execute the local coin-flip logic
-	 * and return a protocol-compliant text content block.
-	 *
-	 * If an unknown tool name is requested, we return an MCP protocol error.
+	 * Builds server options in one place so Main stays easy to scan.
 	 */
-	private static ValueTask<CallToolResult> HandleCallTool(RequestContext<CallToolRequestParams> request, CancellationToken cancellationToken)
+	private static McpServerOptions BuildServerOptions(Tool coinFlipTool)
 	{
-		if (request.Params?.Name == CoinFlipToolName)
+		return new McpServerOptions
 		{
-			return ValueTask.FromResult(new CallToolResult
+			ServerInfo = new Implementation
 			{
-				Content = [new TextContentBlock { Text = FlipCoin() }]
-			});
-		}
-
-		throw new McpProtocolException($"Unknown tool: '{request.Params?.Name}'", McpErrorCode.InvalidRequest);
+				Name = ServerName,
+				Version = ServerVersion
+			},
+			Handlers = BuildHandlers(coinFlipTool)
+		};
 	}
 
 	/*
-	 * Core business logic for the demo tool.
+	 * Configures the two handler paths this demo supports.
 	 *
-	 * Random.Shared.Next(2) returns 0 or 1 with equal probability,
-	 * so this produces a simple 50/50 heads-or-tails result.
+	 * - tools/list returns the one tool we expose.
+	 * - tools/call runs the coin flip and returns text.
+	 */
+	private static McpServerHandlers BuildHandlers(Tool coinFlipTool)
+	{
+		return new McpServerHandlers
+		{
+			ListToolsHandler = (_, _) => ValueTask.FromResult(new ListToolsResult
+			{
+				Tools = [coinFlipTool]
+			}),
+			CallToolHandler = (_, _) => ValueTask.FromResult(new CallToolResult
+			{
+				Content = [new TextContentBlock { Text = FlipCoin() }]
+			})
+		};
+	}
+
+	/*
+	 * Core logic for the demo tool.
+	 *
+	 * Random.Shared.Next(2) returns either 0 or 1,
+	 * giving a simple 50/50 heads-or-tails result.
 	 */
 	private static string FlipCoin() => Random.Shared.Next(2) == 0 ? "heads" : "tails";
 }
