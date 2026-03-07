@@ -1,29 +1,29 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
   <diagram name="Page-1" id="lzmYphUKuXm282szyS_j">
-    <mxGraphModel dx="1547" dy="1391" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1958" dy="1496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
-        <mxCell id="1" parent="0" />
+        <mxCell id="1" parent="0" value="Local" />
         <mxCell id="74-3blXLzTteV09FlmFJ-5" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«server process, .NET»&lt;br&gt;&lt;b&gt;CoinFlip.McpServer (via DLL)&lt;/b&gt;" vertex="1">
-          <mxGeometry height="360" width="260" x="309" y="-90" as="geometry" />
+          <mxGeometry height="360" width="260" x="-201" y="-90" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-1" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«IDE»&lt;br&gt;&lt;b&gt;VSCode&lt;/b&gt;" vertex="1">
-          <mxGeometry height="410" width="260" x="-50" y="-320" as="geometry" />
+          <mxGeometry height="410" width="260" x="-560" y="-320" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-3" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«agent»&lt;br&gt;&lt;b&gt;Copilot Agent-Mode Agent&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="-30" y="-90" as="geometry" />
+          <mxGeometry height="160" width="220" x="-540" y="-90" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-4" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«client transport»&lt;br&gt;&lt;b&gt;StdioClientTransport&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="-10" y="-40" as="geometry" />
+          <mxGeometry height="90" width="180" x="-520" y="-40" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-8" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" target="74-3blXLzTteV09FlmFJ-7">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-6" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«server transport»&lt;br&gt;&lt;b&gt;StdioServerTransport&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="349" y="-40" as="geometry" />
+          <mxGeometry height="90" width="180" x="-161" y="-40" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-7" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«tool»&lt;br&gt;&lt;b&gt;coin_flip&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="329" y="90" as="geometry" />
+          <mxGeometry height="160" width="220" x="-181" y="90" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-9" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-4" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" target="74-3blXLzTteV09FlmFJ-6">
           <mxGeometry relative="1" as="geometry" />
@@ -34,14 +34,14 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-10" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=middle;" value="«private method»&lt;br&gt;&lt;b&gt;FlipCoin()&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="349" y="140" as="geometry" />
+          <mxGeometry height="90" width="180" x="-161" y="140" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-11" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-1" style="shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" target="74-3blXLzTteV09FlmFJ-5">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="439" y="-217" />
+              <mxPoint x="-71" y="-217" />
             </Array>
-            <mxPoint x="30" y="270" as="sourcePoint" />
+            <mxPoint x="-480" y="270" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-12" connectable="0" parent="74-3blXLzTteV09FlmFJ-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Launch&lt;br&gt;Process" vertex="1">
@@ -50,124 +50,114 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-19" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«workspace configuration»&lt;br&gt;&lt;b&gt;.vscode&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="-30" y="-270" as="geometry" />
+          <mxGeometry height="160" width="220" x="-540" y="-270" as="geometry" />
         </mxCell>
         <mxCell id="74-3blXLzTteV09FlmFJ-22" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«json»&lt;br&gt;&lt;b&gt;mcp.json (servers)&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="-10" y="-220" as="geometry" />
+          <mxGeometry height="90" width="180" x="-520" y="-220" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-24" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=middle;" value="«Hosted API, MCP over HTTP»&lt;br&gt;&lt;b&gt;CoinFlip MCP Service&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="1160" y="-40" as="geometry" />
+        <mxCell id="74-3blXLzTteV09FlmFJ-55" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;h1&gt;Local MCP server (stdio)&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="30" width="370" x="-460" y="-400" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-25" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«IDE»&lt;br&gt;&lt;b&gt;VSCode&lt;/b&gt;" vertex="1">
-          <mxGeometry height="410" width="260" x="800" y="-320" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-1" parent="0" value="Hosted" visible="0" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-3" parent="XOYYuEQc-YgSA46oegZt-1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=middle;" value="«Hosted API, MCP over HTTP»&lt;br&gt;&lt;b&gt;CoinFlip MCP Service&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-200" y="-40" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-26" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«agent»&lt;br&gt;&lt;b&gt;Copilot Agent-Mode Agent&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="820" y="-90" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-4" parent="XOYYuEQc-YgSA46oegZt-1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«IDE»&lt;br&gt;&lt;b&gt;VSCode&lt;/b&gt;" vertex="1">
+          <mxGeometry height="410" width="260" x="-560" y="-320" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-27" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«client transport»&lt;br&gt;&lt;b&gt;HttpClientTransport&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="840" y="-40" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-5" parent="XOYYuEQc-YgSA46oegZt-1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«agent»&lt;br&gt;&lt;b&gt;Copilot Agent-Mode Agent&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="220" x="-540" y="-90" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-31" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-27" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" target="74-3blXLzTteV09FlmFJ-24">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-6" parent="XOYYuEQc-YgSA46oegZt-1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«client transport»&lt;br&gt;&lt;b&gt;HttpClientTransport&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-520" y="-40" as="geometry" />
+        </mxCell>
+        <mxCell id="XOYYuEQc-YgSA46oegZt-7" edge="1" parent="XOYYuEQc-YgSA46oegZt-1" source="XOYYuEQc-YgSA46oegZt-6" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" target="XOYYuEQc-YgSA46oegZt-3">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1199" y="5" as="targetPoint" />
+            <mxPoint x="-161" y="5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-32" connectable="0" parent="74-3blXLzTteV09FlmFJ-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Send&lt;br&gt;Request&lt;br&gt;(coin_flip)" vertex="1">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-8" connectable="0" parent="XOYYuEQc-YgSA46oegZt-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Send&lt;br&gt;Request&lt;br&gt;(coin_flip)" vertex="1">
           <mxGeometry relative="1" x="-0.3365" y="1" as="geometry">
             <mxPoint x="44" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-36" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«workspace configuration»&lt;br&gt;&lt;b&gt;.vscode&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="820" y="-270" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-9" parent="XOYYuEQc-YgSA46oegZt-1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«workspace configuration»&lt;br&gt;&lt;b&gt;.vscode&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="220" x="-540" y="-270" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-37" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«json»&lt;br&gt;&lt;b&gt;mcp.json (servers)&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="840" y="-220" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-10" parent="XOYYuEQc-YgSA46oegZt-1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«json»&lt;br&gt;&lt;b&gt;mcp.json (servers)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-520" y="-220" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-38" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«server process, .NET»&lt;br&gt;&lt;b&gt;CoinFlip.McpServer (via DLL)&lt;/b&gt;" vertex="1">
-          <mxGeometry height="360" width="260" x="1939" y="-90" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-11" parent="XOYYuEQc-YgSA46oegZt-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;h1&gt;Hosted MCP server (HTTP)&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="30" width="370" x="-490" y="-400" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-39" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«IDE»&lt;br&gt;&lt;b&gt;VSCode&lt;/b&gt;" vertex="1">
-          <mxGeometry height="410" width="260" x="1580" y="-320" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-2" parent="0" value="Adapter" visible="0" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-12" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«server process, .NET»&lt;br&gt;&lt;b&gt;CoinFlip.McpServer (via DLL)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="360" width="260" x="-201" y="-90" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-40" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«agent»&lt;br&gt;&lt;b&gt;Copilot Agent-Mode Agent&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="1600" y="-90" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-13" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«IDE»&lt;br&gt;&lt;b&gt;VSCode&lt;/b&gt;" vertex="1">
+          <mxGeometry height="410" width="260" x="-560" y="-320" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-41" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«client transport»&lt;br&gt;&lt;b&gt;StdioClientTransport&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="1620" y="-40" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-14" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«agent»&lt;br&gt;&lt;b&gt;Copilot Agent-Mode Agent&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="220" x="-540" y="-90" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-42" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-43" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" target="74-3blXLzTteV09FlmFJ-44">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-15" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«client transport»&lt;br&gt;&lt;b&gt;StdioClientTransport&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-520" y="-40" as="geometry" />
+        </mxCell>
+        <mxCell id="XOYYuEQc-YgSA46oegZt-16" edge="1" parent="XOYYuEQc-YgSA46oegZt-2" source="XOYYuEQc-YgSA46oegZt-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" target="XOYYuEQc-YgSA46oegZt-18">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-43" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«server transport»&lt;br&gt;&lt;b&gt;StdioServerTransport&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="1979" y="-40" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-17" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«server transport»&lt;br&gt;&lt;b&gt;StdioServerTransport&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-161" y="-40" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-44" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«tool»&lt;br&gt;&lt;b&gt;coin_flip&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="1959" y="90" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-18" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«tool»&lt;br&gt;&lt;b&gt;coin_flip&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="220" x="-181" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-45" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-41" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" target="74-3blXLzTteV09FlmFJ-43">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-19" edge="1" parent="XOYYuEQc-YgSA46oegZt-2" source="XOYYuEQc-YgSA46oegZt-15" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" target="XOYYuEQc-YgSA46oegZt-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-46" connectable="0" parent="74-3blXLzTteV09FlmFJ-45" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Send&lt;br&gt;Request&lt;br&gt;(coin_flip)" vertex="1">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-20" connectable="0" parent="XOYYuEQc-YgSA46oegZt-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Send&lt;br&gt;Request&lt;br&gt;(coin_flip)" vertex="1">
           <mxGeometry relative="1" x="-0.3365" y="1" as="geometry">
             <mxPoint x="31" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-47" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=middle;" value="«private method»&lt;br&gt;&lt;b&gt;FlipCoin()&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="1979" y="140" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-21" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=middle;" value="«private method»&lt;br&gt;&lt;b&gt;FlipCoin()&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-161" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-48" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-39" style="shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" target="74-3blXLzTteV09FlmFJ-38">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-22" edge="1" parent="XOYYuEQc-YgSA46oegZt-2" source="XOYYuEQc-YgSA46oegZt-13" style="shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" target="XOYYuEQc-YgSA46oegZt-12">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="2069" y="-217" />
+              <mxPoint x="-71" y="-217" />
             </Array>
-            <mxPoint x="1660" y="270" as="sourcePoint" />
+            <mxPoint x="-480" y="270" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-49" connectable="0" parent="74-3blXLzTteV09FlmFJ-48" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Launch&lt;br&gt;Process" vertex="1">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-23" connectable="0" parent="XOYYuEQc-YgSA46oegZt-22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Launch&lt;br&gt;Process" vertex="1">
           <mxGeometry relative="1" x="-0.7037" as="geometry">
             <mxPoint x="46" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-50" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«workspace configuration»&lt;br&gt;&lt;b&gt;.vscode&lt;/b&gt;" vertex="1">
-          <mxGeometry height="160" width="220" x="1600" y="-270" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-24" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=top;" value="«workspace configuration»&lt;br&gt;&lt;b&gt;.vscode&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="220" x="-540" y="-270" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-51" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«json»&lt;br&gt;&lt;b&gt;mcp.json (servers)&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="1620" y="-220" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-25" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«json»&lt;br&gt;&lt;b&gt;mcp.json (servers)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-520" y="-220" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-52" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=middle;" value="«Hosted REST »&lt;br&gt;&lt;b&gt;Coin Flip API&lt;/b&gt;" vertex="1">
-          <mxGeometry height="90" width="180" x="2299" y="140" as="geometry" />
+        <mxCell id="XOYYuEQc-YgSA46oegZt-26" parent="XOYYuEQc-YgSA46oegZt-2" style="html=1;dropTarget=0;whiteSpace=wrap;verticalAlign=middle;" value="«Hosted REST »&lt;br&gt;&lt;b&gt;Coin Flip API&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="159" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-53" edge="1" parent="1" source="74-3blXLzTteV09FlmFJ-47" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" target="74-3blXLzTteV09FlmFJ-52">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-27" edge="1" parent="XOYYuEQc-YgSA46oegZt-2" source="XOYYuEQc-YgSA46oegZt-21" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" target="XOYYuEQc-YgSA46oegZt-26">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="2159" y="185" as="sourcePoint" />
-            <mxPoint x="2338" y="185" as="targetPoint" />
+            <mxPoint x="19" y="185" as="sourcePoint" />
+            <mxPoint x="198" y="185" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-54" connectable="0" parent="74-3blXLzTteV09FlmFJ-53" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Proxy&lt;br&gt;Request" vertex="1">
+        <mxCell id="XOYYuEQc-YgSA46oegZt-28" connectable="0" parent="XOYYuEQc-YgSA46oegZt-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="Proxy&lt;br&gt;Request" vertex="1">
           <mxGeometry relative="1" x="-0.3365" y="1" as="geometry">
             <mxPoint x="44" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-55" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;h1&gt;Local MCP server (stdio)&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="30" width="370" x="50" y="-400" as="geometry" />
-        </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-56" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;h1&gt;Hosted MCP server (HTTP)&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="30" width="370" x="870" y="-400" as="geometry" />
-        </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-57" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;h1&gt;Local MCP adapter to a hosted API&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="30" width="370" x="1680" y="-400" as="geometry" />
-        </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-58" edge="1" parent="1" style="shape=link;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" value="">
-          <mxGeometry relative="1" width="100" as="geometry">
-            <mxPoint x="680" y="-440" as="sourcePoint" />
-            <mxPoint x="680" y="320" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="74-3blXLzTteV09FlmFJ-59" edge="1" parent="1" style="shape=link;html=1;rounded=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=open;endFill=0;" value="">
-          <mxGeometry relative="1" width="100" as="geometry">
-            <mxPoint x="1460" y="-440" as="sourcePoint" />
-            <mxPoint x="1460" y="320" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="XOYYuEQc-YgSA46oegZt-29" parent="XOYYuEQc-YgSA46oegZt-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;h1&gt;Local MCP adapter to a hosted API&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="30" width="370" x="-460" y="-400" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
